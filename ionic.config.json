@@ -1,0 +1,7 @@
+{
+  "name": "lscompass",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
