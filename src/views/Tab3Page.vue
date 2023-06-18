@@ -18,6 +18,7 @@
       <ion-list>
         <ion-item v-for="docente in listaDocentiFiltrata">
         <ion-label>{{docente.cognome}} {{docente.nome}}</ion-label>
+        <ion-note slot="end">B112</ion-note>
       </ion-item>
       </ion-list>
     </ion-content>
@@ -25,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonLabel, IonSearchbar } from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonLabel, IonSearchbar, IonNote } from '@ionic/vue';
 
 
 import {ref, computed} from 'vue';
