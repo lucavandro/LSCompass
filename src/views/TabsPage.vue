@@ -13,7 +13,7 @@
           <ion-label>Aula</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="tab3" href="/tabs/tab3">
+        <ion-tab-button tab="tab3" href="/tabs/docenti">
           <ion-icon aria-hidden="true" :icon="peopleOutline" />
           <ion-label>Docenti</ion-label>
         </ion-tab-button>

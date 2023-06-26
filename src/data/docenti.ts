@@ -1,37 +1,8 @@
-<template>
-  <ion-page>
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Docenti</ion-title>
-      </ion-toolbar>
-      <ion-toolbar>
-        <ion-searchbar v-model="query" placeholder="Cerca docente"></ion-searchbar>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">Docenti</ion-title>
-        </ion-toolbar>
-      </ion-header>
-      <ion-label>{{query}}</ion-label>
-      <ion-list>
-        <ion-item v-for="docente in listaDocentiFiltrata">
-        <ion-label>{{docente.cognome}} {{docente.nome}}</ion-label>
-        <ion-note slot="end">B112</ion-note>
-      </ion-item>
-      </ion-list>
-    </ion-content>
-  </ion-page>
-</template>
-
-<script setup lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonLabel, IonSearchbar, IonNote } from '@ionic/vue';
-
-
-import {ref, computed} from 'vue';
-let query = ref('')
-const listaDocenti = [
+interface IDocente {
+  nome: String,
+  cognome: String
+}
+export const listaDocenti : Array<IDocente> = [
     {
       "nome": "Mario",
       "cognome": "Rossi"
@@ -152,13 +123,8 @@ const listaDocenti = [
       "nome": "Veronica",
       "cognome": "Mazza"
     }
-  ]
+  ].sort((a,b)=>a.cognome>b.cognome? 1 : -1)
 
-
-const listaDocentiFiltrata = computed(()=>{
-  return listaDocenti.filter(docente => {
-    const fullName = `${docente.nome} ${docente.cognome}`;
-    return fullName.toLowerCase().includes(query.value.toLowerCase());
-  });
-})
-</script>
+export function getDocente(id: number): IDocente{
+  return listaDocenti[id]
+}
