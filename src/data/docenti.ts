@@ -125,6 +125,6 @@ export const listaDocenti : Array<IDocente> = [
     }
   ].sort((a,b)=>a.cognome>b.cognome? 1 : -1)
 
-export function getDocente(id: number): IDocente{
-  return listaDocenti[id]
+export function getDocente(id: string): IDocente{
+  return listaDocenti[parseInt(id)]
 }

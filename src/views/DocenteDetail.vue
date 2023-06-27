@@ -26,19 +26,45 @@
                     </ion-col>
                 </ion-row>
             </ion-grid>
-
+            <ion-list>
+                <ion-item>
+                    <ion-label>Aula</ion-label>
+                    <ion-badge slot="end">B122</ion-badge>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Classe</ion-label>
+                    <ion-badge color="success" slot="end">5ASA</ion-badge>
+                </ion-item>
+            </ion-list>
+            <ion-list>
+                <ion-list-header>
+                    <ion-label>Orario giornaliero</ion-label>
+                </ion-list-header>
+                <ion-item>
+                    <ion-label>Aula</ion-label>
+                    <ion-badge slot="end">B122</ion-badge>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Classe</ion-label>
+                    <ion-badge color="success" slot="end">5ASA</ion-badge>
+                </ion-item>
+            </ion-list>
         </ion-content>
+
     </ion-page>
 </template>
 
 <script lang="ts">
+import { IonListHeader, IonPage, IonBadge, IonLabel, IonHeader, IonTitle, IonToolbar, IonContent, IonButtons, IonBackButton, IonGrid, IonRow, IonCol, IonAvatar, IonList, IonItem } from '@ionic/vue';
 import { ref } from 'vue'
 import { getDocente } from '@/data/docenti'
 
 export default {
+    name: 'DocenteDetail',
     props: {
-        id: Number
+        id: String
     },
+    components: { IonListHeader, IonPage, IonBadge, IonLabel, IonHeader, IonTitle, IonToolbar, IonContent, IonButtons, IonBackButton, IonGrid, IonRow, IonCol, IonAvatar, IonItem, IonList },
     setup(props) {
         const docente = ref(getDocente(props.id))
         return { docente }
